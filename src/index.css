@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-neon-pink: #ff00ff;
+  --color-neon-blue: #00ffff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-green: #39ff14;
+  --color-dark-bg: #050505;
+  --font-pixel: "Press Start 2P", system-ui;
+  --font-mono: "VT323", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-neon-blue font-mono overflow-hidden selection:bg-neon-pink selection:text-black;
+    text-transform: uppercase;
+  }
+}
+
+.glitch-text {
+  position: relative;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.scanlines {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.8) 50%
+  );
+  background-size: 100% 2px;
+  z-index: 100;
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.9; }
+  15% { opacity: 0.98; }
+  20% { opacity: 0.95; }
+  25% { opacity: 0.97; }
+  30% { opacity: 0.9; }
+  35% { opacity: 0.98; }
+  40% { opacity: 0.95; }
+  45% { opacity: 0.97; }
+  50% { opacity: 0.9; }
+  55% { opacity: 0.98; }
+  60% { opacity: 0.95; }
+  65% { opacity: 0.97; }
+  70% { opacity: 0.9; }
+  75% { opacity: 0.98; }
+  80% { opacity: 0.95; }
+  85% { opacity: 0.97; }
+  90% { opacity: 0.9; }
+  95% { opacity: 0.98; }
+  100% { opacity: 0.95; }
+}
+
+.neon-border {
+  border: 2px solid var(--color-neon-blue);
+  box-shadow: 0 0 10px var(--color-neon-blue), inset 0 0 5px var(--color-neon-blue);
+}
+
+.neon-border-pink {
+  border: 2px solid var(--color-neon-pink);
+  box-shadow: 0 0 10px var(--color-neon-pink), inset 0 0 5px var(--color-neon-pink);
+}
